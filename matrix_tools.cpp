@@ -13,6 +13,11 @@ Matrix createMatrix(int rows, int cols)
         return m;
     
     /* TODO : Crear la matriz*/
+        m.data = (int*)malloc(rows * cols * sizeof(int));
+        if (!m.data) {
+            m.rows = 0;
+            m.cols = 0;
+        }
     return m;
 }
 
@@ -63,6 +68,12 @@ void printMatrixSample(const Matrix* m, int maxRows, int maxCols, const char* na
     printf("\nMuestra de %s (%d x %d):\n", name, m->rows, m->cols);
     
     /* TODO: Imprimir solo un fragmento de la matriz*/
+    for (int i = 0; i < rLim; i++) {
+        for (int j = 0; j < cLim; j++) {
+            printf("%d ", m->data[i * m->cols + j]);
+        }
+        printf("\n");
+    }
 }
 
 void transposeMatrix(const Matrix* src, Matrix* dst)
