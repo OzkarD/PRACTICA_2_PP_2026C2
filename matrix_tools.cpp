@@ -47,16 +47,21 @@ int validModulo(int modN)
 
 void fillRandomMatrix(Matrix* m, int minValue, int maxValue, unsigned int seed)
 {
-    if (!m || !m->data) 
-        return;
-    /*TODO: llenar la matriz*/
+    if (!m || !m->data) return;
+    srand(seed);
+    for(int i = 0;i < m->rows;i++){
+	    for(int j = 0; j < m->cols; j++){
+		    m->data[i*m->cols + j] = minValue + rand() % (maxValue - minValue + 1);
+	    }
+    }
 }
 
 void zeroMatrix(Matrix* m)
 {
-    if (!m || !m->data) 
-        return;
-    /* TODO: limpiar la matriz*/
+    if (!m || !m->data) return;
+    for(int i = 0; i < m->cols*m->rows;i++){
+    	m->data[i] = 0;
+    }
 }
 
 void printMatrixSample(const Matrix* m, int maxRows, int maxCols, const char* name)
