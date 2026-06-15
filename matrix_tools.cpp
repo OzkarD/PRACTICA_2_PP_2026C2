@@ -11,7 +11,14 @@ Matrix createMatrix(int rows, int cols)
     m.data = NULL;
     if (rows <= 0 || cols <= 0) 
         return m;
-    
+
+    m.data = (int*)malloc(rows*cols * (sizeof(int)));
+
+	if (m.data == NULL) {
+		fprintf(stderr, "Error al asignar memoria para la matriz");
+        return m;
+	}
+
     /* TODO : Crear la matriz*/
     return m;
 }
@@ -44,6 +51,13 @@ void fillRandomMatrix(Matrix* m, int minValue, int maxValue, unsigned int seed)
 {
     if (!m || !m->data) 
         return;
+
+    srand(seed);
+
+    for(int i = 0; i < m->rows; i++)
+        for(int j = 0; j < m->cols; j++)
+			m->data[i * m->cols + j] = minValue + rand() % (maxValue - minValue + 1);
+
     /*TODO: llenar la matriz*/
 }
 
@@ -51,6 +65,9 @@ void zeroMatrix(Matrix* m)
 {
     if (!m || !m->data) 
         return;
+
+
+
     /* TODO: limpiar la matriz*/
 }
 
