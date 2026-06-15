@@ -13,6 +13,18 @@ Matrix createMatrix(int rows, int cols)
         return m;
     
     /* TODO : Crear la matriz*/
+
+    //Asignacion de memoria
+
+	m.data = (int*)malloc(rows * cols * sizeof(int));
+
+	//Verificacion de que la asignacion de memoria fue exitosa
+
+	if (m.data == NULL) {
+		m.rows = 0;
+		m.cols = 0;
+	}
+
     return m;
 }
 
@@ -45,6 +57,16 @@ void fillRandomMatrix(Matrix* m, int minValue, int maxValue, unsigned int seed)
     if (!m || !m->data) 
         return;
     /*TODO: llenar la matriz*/
+
+    srand(seed);
+
+    int Total_Elementos = m->cols * m->rows;
+
+    for (int i = 0; i < Total_Elementos; i++)
+    {
+		m->data[i] = minValue + rand() % (maxValue - minValue + 1);
+    }
+
 }
 
 void zeroMatrix(Matrix* m)
@@ -52,6 +74,14 @@ void zeroMatrix(Matrix* m)
     if (!m || !m->data) 
         return;
     /* TODO: limpiar la matriz*/
+
+	int Total_Elementos = m->cols * m->rows;
+
+    for (int i = 0; i < Total_Elementos; i++)
+    {
+        m->data[i] = 0;
+    }
+
 }
 
 void printMatrixSample(const Matrix* m, int maxRows, int maxCols, const char* name)
@@ -63,6 +93,16 @@ void printMatrixSample(const Matrix* m, int maxRows, int maxCols, const char* na
     printf("\nMuestra de %s (%d x %d):\n", name, m->rows, m->cols);
     
     /* TODO: Imprimir solo un fragmento de la matriz*/
+
+    for (int i = 0; i < rLim; i++)
+    {
+        for (int j = 0; j < cLim; j++)
+        {
+            printf("%d \t", m->data[i * m->cols + j]);
+        }
+        printf("\n");
+    }
+
 }
 
 void transposeMatrix(const Matrix* src, Matrix* dst)
