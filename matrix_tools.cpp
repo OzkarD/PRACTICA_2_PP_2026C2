@@ -65,7 +65,10 @@ void zeroMatrix(Matrix* m)
 {
     if (!m || !m->data) 
         return;
-
+    
+    for(int i = 0; i < m->rows; i++)
+        for(int j = 0; j < m->cols; j++)
+			m->data[i * m->cols + j] = 0;
 
 
     /* TODO: limpiar la matriz*/
@@ -77,7 +80,14 @@ void printMatrixSample(const Matrix* m, int maxRows, int maxCols, const char* na
         return;
     int rLim = m->rows < maxRows ? m->rows : maxRows;
     int cLim = m->cols < maxCols ? m->cols : maxCols;
+
     printf("\nMuestra de %s (%d x %d):\n", name, m->rows, m->cols);
+
+    for (int i = 0; i < rLim; i++) {
+        for (int j = 0; j < cLim; j++)
+            printf("%4d", m->data[i * m->cols + j]);
+        printf("\n");
+    }
     
     /* TODO: Imprimir solo un fragmento de la matriz*/
 }
