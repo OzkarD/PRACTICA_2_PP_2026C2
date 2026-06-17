@@ -33,4 +33,8 @@ Integrantes: RIVAS GUERRERO JHONATHAN LORENZO - PELCASTRE HERNÁNDEZ ARTURO
 ## Pareja 7 
 
 Integrantes: VELÁZQUEZ VEGA LUIGI - ZAVALA MENDOZA VICTOR 
+
+## PAREJA 8
+
+Martinez López Mildred Viviana, Ángel Emmanuel Sánchez Gómez
 -
