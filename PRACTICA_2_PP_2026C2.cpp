@@ -84,3 +84,19 @@ int main()
     return 0;
 }
 
+//Conclusiones:
+/*
+* Pedro Meza Flores     11087
+En esta práctica el objetivo principal era seguir trabajando con arerglosp dinámicos, que es lo que hemos estado revisando en clases, de igual manera
+los cambios más significativos fueron los siguientes:
+
+Un triple ciclo for, donde los primeros dos ciclos de i y j, tenemos una inspeccion de las filas y columnas de cada una de las matrices A y B, y
+finalmente el ciclo de K donde tenemos el proposito de hacer el producto punto de las dos matrices y estar haciendo el recorrido de ir a la derecha
+de la matriz A y hacia abajo de la matriz B.
+
+Finalmente, se integro el modN con la funcion declarada en matrix_tools.cpp llamada modNormalize, la cual nos ayuda a calcular el residuo de la
+multiplicación de matrices.
+
+*Nahomy Rivadeneyra     11082
+
+*/
