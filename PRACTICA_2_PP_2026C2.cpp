@@ -61,6 +61,8 @@ int main()
     printMatrixSample(&B, 4, 6, "B");
     printf("\nCalculando referencia secuencial...\n");
     matmulModSequential(&A, &B, &Cseq, cfg.modN);
+    printMatrixSample(&Cseq, 4, 6, "C");
+
     TimingResult seq = benchmarkMatMul(matmulModSequential, &A, &B, &Ctmp, &Cseq, cfg.modN, cfg.repetitions);
     
     /* VERSIONES PARALELAS: LAS IMPLEMENTA EL PROF*/
